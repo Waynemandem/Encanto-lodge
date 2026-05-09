@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encanto Lodge — Victoria Island, Lagos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ============================
+   RESET & BASE
+============================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: #FFFEF8;
+  color: #1A0A2E;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* ============================
+   CSS VARIABLES
+============================= */
+:root {
+  --gold: #C9A255;
+  --gold-light: #E8C87A;
+  --gold-pale: #FBF4E3;
+  --gold-border: rgba(201,162,85,0.25);
+  --purple: #3D1A6E;
+  --purple-mid: #5B2D8E;
+  --purple-light: #7B4DB0;
+  --purple-pale: #F3EDFA;
+  --cream: #FFFEF8;
+  --warm: #FAF6EE;
+  --warm2: #F5EFE2;
+  --border: #EDE6D8;
+  --text: #1A0A2E;
+  --text-mid: #4A3560;
+  --muted: #9080A0;
+  --green-wa: #25D366;
+  --shadow-sm: 0 2px 12px rgba(61,26,110,0.06);
+  --shadow-md: 0 8px 32px rgba(61,26,110,0.1);
+  --shadow-lg: 0 20px 60px rgba(61,26,110,0.14);
+  --radius: 16px;
+  --radius-sm: 8px;
+}
+
+/* ============================
+   MEXICAN TILE PATTERN (SVG inline)
+============================= */
+.tile-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A255' fill-opacity='0.06'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Cpath d='M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.tile-bg-purple {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233D1A6E' fill-opacity='0.05'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Cpath d='M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ============================
+   TYPOGRAPHY
+============================= */
+.display { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+.display-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+
+/* ============================
+   BUTTONS
+============================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(201,162,85,0.35);
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,162,85,0.45); }
+.btn-purple {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(61,26,110,0.3);
+}
+.btn-purple:hover { background: var(--purple-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(61,26,110,0.4); }
+.btn-wa {
+  background: var(--green-wa);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.btn-wa:hover { background: #1EBE58; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent;
+  color: var(--purple);
+  border: 1.5px solid var(--purple);
+}
+.btn-outline:hover { background: var(--purple); color: #fff; transform: translateY(-2px); }
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+}
+.btn-outline-gold:hover { background: var(--gold); color: #fff; transform: translateY(-2px); }
+.btn-sm { padding: 10px 22px; font-size: 12px; }
+
+/* ============================
+   NAV
+============================= */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 56px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,254,248,0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(201,162,85,0.15);
+  transition: box-shadow 0.3s;
+}
+#nav.scrolled { box-shadow: var(--shadow-sm); }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo img {
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(61,26,110,0.15));
+}
+.nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+.nav-logo-text .nl { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; letter-spacing: 2px; color: var(--purple); }
+.nav-logo-text .ns { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-mid); font-weight: 400; transition: color 0.2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-ctas { display: flex; gap: 10px; align-items: center; }
+
+/* ============================
+   HERO
+============================= */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 72px;
+  position: relative;
+}
+.hero-left::before {
+  content: 'E';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 400px;
+  font-weight: 300;
+  color: var(--gold-pale);
+  position: absolute;
+  top: -40px; left: -20px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-tag { margin-bottom: 24px; position: relative; z-index: 1; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 5.5vw, 80px);
+  font-weight: 400;
+  line-height: 1.04;
+  color: var(--text);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.hero-title .italic { font-style: italic; color: var(--purple); }
+.hero-title .gold { color: var(--gold); }
+.hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 380px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; margin-bottom: 48px; }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--purple);
+  display: block;
+}
+.hero-stat-label { font-size: 11px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+.hero-img-container {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, #EDE0F5, #DDD0F0, #E8D5C0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(61,26,110,0.25);
+  min-height: 500px;
+  position: relative;
+}
+.hero-img-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255,254,248,0.3) 0%, transparent 30%);
+}
+.hero-img-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+.booking-float {
+  position: absolute;
+  bottom: 40px;
+  left: -40px;
+  background: rgba(255,254,248,0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-lg);
+  min-width: 320px;
+  z-index: 10;
+}
+.booking-float-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: var(--purple); margin-bottom: 16px; }
+.booking-field { margin-bottom: 12px; }
+.booking-field label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 5px; font-weight: 500; }
+.booking-field input, .booking-field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--cream);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.booking-field input:focus, .booking-field select:focus { border-color: var(--gold); }
+.booking-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ============================
+   SECTION COMMON
+============================= */
+.section { padding: 100px 72px; }
+.section-sm { padding: 80px 72px; }
+.section-head { margin-bottom: 60px; }
+.section-title { font-size: clamp(36px, 4vw, 56px); color: var(--text); margin-top: 12px; }
+
+/* ============================
+   ABOUT
+============================= */
+.about { background: var(--cream); }
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-image-mosaic {
+  position: relative;
+  height: 560px;
+}
+.about-img-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 75%;
+  height: 75%;
+  background: linear-gradient(135deg, #D4B8EE, #B898D8);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(61,26,110,0.25);
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.about-img-small {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 55%;
+  height: 50%;
+  background: linear-gradient(135deg, #F0D898, #E8C070);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(201,162,85,0.4);
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.about-img-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+.about-badge {
+  position: absolute;
+  bottom: 25%;
+  left: 60%;
+  background: var(--purple);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+.about-badge-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; display: block; line-height: 1; }
+.about-badge-text { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; margin-top: 4px; }
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--purple);
+  line-height: 1.5;
+  border-left: 3px solid var(--gold);
+  padding-left: 24px;
+  margin: 32px 0;
+}
+.about-body { font-size: 15px; color: var(--text-mid); line-height: 1.9; font-weight: 300; }
+
+/* ============================
+   ROOMS
+============================= */
+.rooms { background: var(--warm); }
+.rooms-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.room-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s;
+  position: relative;
+}
+.room-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.room-card:hover .room-img-inner { transform: scale(1.05); }
+.room-img { height: 240px; overflow: hidden; position: relative; }
+.room-img-inner {
+  width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(255,255,255,0.35);
+}
+.room-r1 { background: linear-gradient(145deg, #3D2A6E, #5B2D8E); }
+.room-r2 { background: linear-gradient(145deg, #6E3A1A, #A05A28); }
+.room-r3 { background: linear-gradient(145deg, #1A3D2E, #2A6E4E); }
+.room-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: var(--gold);
+  color: #fff;
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.room-body { padding: 24px 28px 28px; }
+.room-tier { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+.room-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--purple); margin-bottom: 14px; }
+.room-amenities { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.room-amenity {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  background: var(--warm2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+.room-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+.room-price { }
+.room-price-note { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.room-price-val { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--purple); font-weight: 400; line-height: 1; margin-top: 2px; }
+.room-price-per { font-size: 11px; color: var(--muted); }
+
+/* ============================
+   AMENITIES
+============================= */
+.amenities { background: var(--cream); position: relative; overflow: hidden; }
+.amenities-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: center; }
+.amenities-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.amenity-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: default;
+}
+.amenity-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-pale);
+  transform: translateY(-3px);
+}
+.amenity-icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 22px;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-border);
+}
+.amenity-card:nth-child(2n) .amenity-icon { background: var(--purple-pale); border-color: rgba(61,26,110,0.15); }
+.amenity-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; color: var(--purple); margin-bottom: 6px; }
+.amenity-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ============================
+   EXPERIENCE
+============================= */
+.experience { background: var(--purple); position: relative; overflow: hidden; }
+.experience::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A255' fill-opacity='0.08'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.experience .eyebrow { color: var(--gold); }
+.experience .section-title { color: #fff; }
+.experience .section-title .italic { font-style: italic; color: var(--gold-light); }
+.exp-sub { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 500px; line-height: 1.8; margin-top: 16px; font-weight: 300; }
+.exp-head-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 24px; }
+.exp-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px; }
+.exp-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+.exp-card:hover { transform: scale(1.02); }
+.exp-card:hover .exp-card-overlay { opacity: 1; }
+.exp-card-bg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(255,255,255,0.25);
+}
+.exp-c1 { background: linear-gradient(145deg, #8B5E3C, #C4844A); min-height: 320px; }
+.exp-c2 { background: linear-gradient(145deg, #1A4A6E, #2A6EA0); min-height: 180px; }
+.exp-c3 { background: linear-gradient(145deg, #3A6E1A, #5AA02A); min-height: 180px; }
+.exp-c4 { background: linear-gradient(145deg, #6E1A3A, #A02A5A); min-height: 180px; }
+.exp-c5 { background: linear-gradient(145deg, #6E5A1A, #A0882A); min-height: 180px; }
+.exp-c1 { grid-row: 1 / 3; }
+.exp-card-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 22px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+.exp-card-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: #fff; }
+.exp-card-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); opacity: 0.9; margin-top: 3px; }
+.exp-card-overlay {
+  position: absolute; inset: 0;
+  background: rgba(61,26,110,0.25);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: var(--radius);
+  border: 2px solid var(--gold);
+}
+.exp-ph-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ============================
+   TESTIMONIALS
+============================= */
+.testimonials { background: var(--warm); }
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.testi-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.testi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.testi-card::before {
+  content: '\201C';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  line-height: 0.8;
+  color: var(--gold-pale);
+  position: absolute;
+  top: 20px; left: 22px;
+  z-index: 0;
+  color: var(--gold);
+  opacity: 0.2;
+}
+.testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+.testi-star { color: var(--gold); font-size: 14px; }
+.testi-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300; font-style: italic; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px; position: relative; z-index: 1; }
+.testi-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--border); padding-top: 20px; }
+.testi-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.testi-av1 { background: linear-gradient(135deg, #D4B8EE, #B898D8); }
+.testi-av2 { background: linear-gradient(135deg, #F0D898, #E8C070); }
+.testi-av3 { background: linear-gradient(135deg, #B8D8EE, #80B8D8); }
+.testi-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.testi-location { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* ============================
+   GALLERY
+============================= */
+.gallery { background: var(--cream); }
+.gallery-grid {
+  columns: 3;
+  column-gap: 16px;
+}
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-ph {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(61,26,110,0.25);
+}
+.gallery-ph span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+.g1 { height: 240px; background: linear-gradient(145deg, #D4B8EE, #B080D0); }
+.g2 { height: 180px; background: linear-gradient(145deg, #F0D898, #D4A840); }
+.g3 { height: 300px; background: linear-gradient(145deg, #B8D8C0, #70A870); }
+.g4 { height: 200px; background: linear-gradient(145deg, #EEC8B8, #D08060); }
+.g5 { height: 260px; background: linear-gradient(145deg, #C8B8EE, #8060C0); }
+.g6 { height: 180px; background: linear-gradient(145deg, #EEE8B8, #C0B060); }
+.g7 { height: 220px; background: linear-gradient(145deg, #B8EEE8, #60C0B0); }
+.g8 { height: 160px; background: linear-gradient(145deg, #EEB8C8, #C06080); }
+.g9 { height: 280px; background: linear-gradient(145deg, #D8EEB8, #90C040); }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: rgba(61,26,110,0.35);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 28px;
+}
+
+/* ============================
+   FAQ
+============================= */
+.faq { background: var(--warm); }
+.faq-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+.faq-list { display: flex; flex-direction: column; gap: 4px; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.faq-item.open { border-color: var(--gold); }
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--gold); }
+.faq-q {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  transition: background 0.2s;
+}
+.faq-q:hover { background: var(--warm); }
+.faq-q-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--purple); }
+.faq-icon { font-size: 20px; color: var(--muted); transition: transform 0.3s, color 0.3s; flex-shrink: 0; line-height: 1; }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.faq-a-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+.faq-item.open .faq-a { max-height: 200px; }
+
+/* ============================
+   FINAL CTA
+============================= */
+.cta-section {
+  background: linear-gradient(135deg, var(--purple) 0%, #5B2D8E 50%, var(--purple) 100%);
+  padding: 120px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A255' fill-opacity='0.07'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-section .eyebrow { color: var(--gold); justify-content: center; }
+.cta-section .eyebrow::before { background: var(--gold); }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 72px); font-weight: 300; color: #fff; margin: 16px 0 20px; line-height: 1.1; }
+.cta-title .italic { font-style: italic; color: var(--gold-light); }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto 40px; line-height: 1.8; font-weight: 300; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.cta-note { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+
+/* ============================
+   FOOTER
+============================= */
+footer {
+  background: #110820;
+  color: rgba(255,255,255,0.6);
+  padding: 80px 72px 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 36px;
+}
+.footer-brand {}
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-logo img { height: 40px; object-fit: contain; opacity: 0.9; }
+.footer-logo-text .fn { font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 2px; color: #fff; font-weight: 400; }
+.footer-logo-text .fs { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
+.footer-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.4); font-weight: 300; max-width: 240px; margin-bottom: 24px; }
+.footer-socials { display: flex; gap: 10px; }
+.soc-btn {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: rgba(255,255,255,0.5);
+}
+.soc-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,162,85,0.1); }
+.footer-col-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 500; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); transition: color 0.2s; font-weight: 300; }
+.footer-links a:hover { color: var(--gold); }
+.footer-contact-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+.footer-contact-icon { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+.footer-contact-text { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; font-weight: 300; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 11px; color: rgba(255,255,255,0.25); transition: color 0.2s; }
+.footer-legal a:hover { color: var(--gold); }
+
+/* ============================
+   DIVIDER / ORNAMENT
+============================= */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 48px 0;
+}
+.ornament-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold-border), transparent); }
+.ornament-diamond {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.ornament-sm { width: 5px; height: 5px; background: var(--gold-light); transform: rotate(45deg); flex-shrink: 0; opacity: 0.5; }
+
+/* ============================
+   SCROLL REVEAL ANIMATIONS
+============================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================
+   RESPONSIVE
+============================= */
+@media (max-width: 1100px) {
+  .section, .section-sm { padding: 80px 40px; }
+  .hero-left { padding: 60px 40px; }
+  .about-inner, .amenities-inner, .faq-inner { gap: 48px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 900px) {
+  #nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 40px 24px 60px; }
+  .hero-right { min-height: 380px; }
+  .booking-float { position: relative; bottom: auto; left: auto; margin: 24px; min-width: auto; }
+  .about-inner, .amenities-inner, .faq-inner { grid-template-columns: 1fr; }
+  .about-image-mosaic { height: 320px; }
+  .rooms-grid, .testi-grid { grid-template-columns: 1fr; }
+  .exp-grid { grid-template-columns: 1fr 1fr; }
+  .exp-c1 { grid-row: auto; }
+  .gallery-grid { columns: 2; }
+  .section, .section-sm { padding: 60px 24px; }
+  .cta-section { padding: 80px 24px; }
+  footer { padding: 60px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 500px) {
+  .gallery-grid { columns: 1; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .amenities-grid { grid-template-columns: repeat(2,1fr); }
+  .hero-stats { flex-wrap: wrap; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================
+     NAV
+============================= -->
+<nav id="nav">
+    <a class="nav-logo" href="#">
+    <div class="nav-logo-wordmark">
+      <span class="wm-encanto">Encanto</span>
+      <span class="wm-lodge">Lodge</span>
+    </div>
+    <span class="wm-vi">· Victoria Island</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-ctas">
+    <button class="btn btn-wa btn-sm" onclick="window.open('https://wa.me/2347077907133','_blank')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </button>
+    <a href="#booking" class="btn btn-gold btn-sm">Book a Stay</a>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+============================= -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-tag eyebrow reveal">Mexican-Inspired Lodge · Victoria Island</p>
+    <h1 class="hero-title reveal reveal-delay-1">
+      Where Lagos<br>
+      <span class="italic">meets the</span><br>
+      <span class="gold">Soul of Mexico</span>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      A stay, a swim, a sip, a taste — all in one escape.
+      Open 24 hours in the heart of Victoria Island.
+    </p>
+    <div class="hero-btns reveal reveal-delay-3">
+      <a href="#booking" class="btn btn-purple">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book a Stay
+      </a>
+      <a href="#rooms" class="btn btn-outline">Explore Rooms</a>
+    </div>
+    <div class="hero-stats reveal reveal-delay-4">
+      <div>
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">Luxury Suites</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">24/7</span>
+        <span class="hero-stat-label">Always Open</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">VI</span>
+        <span class="hero-stat-label">Victoria Island</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-container">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <span class="hero-img-label">Add hero photo here</span>
+    </div>
+    <!-- Floating Booking Card -->
+    <div class="booking-float" id="booking">
+      <div class="booking-float-title">Reserve Your Escape</div>
+      <div class="booking-row">
+        <div class="booking-field">
+          <label>Check-In</label>
+          <input type="date" />
+        </div>
+        <div class="booking-field">
+          <label>Check-Out</label>
+          <input type="date" />
+        </div>
+      </div>
+      <div class="booking-field">
+        <label>Room Type</label>
+        <select>
+          <option>The Hacienda Room — ₦45,000/night</option>
+          <option>The Jardín Suite — ₦65,000/night</option>
+          <option>The Encanto Suite — ₦95,000/night</option>
+        </select>
+      </div>
+      <div class="booking-row">
+        <div class="booking-field">
+          <label>Guests</label>
+          <select><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select>
+        </div>
+        <div class="booking-field">
+          <label>Nights</label>
+          <input type="number" value="1" min="1" />
+        </div>
+      </div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;border-radius:8px" onclick="window.open('https://wa.me/2347077907133?text=Hello, I would like to make a reservation at Encanto Lodge.','_blank')">Check Availability</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ABOUT
+============================= -->
+<section class="section about" id="about">
+  <div class="about-inner">
+    <div class="about-image-mosaic reveal">
+      <div class="about-img-main">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="about-img-label">Add lodge photo</span>
+      </div>
+      <div class="about-img-small">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="about-img-label">Add photo</span>
+      </div>
+      <div class="about-badge">
+        <span class="about-badge-num">No.1</span>
+        <span class="about-badge-text">Mexican Lodge<br>in Lagos</span>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow reveal">Our Story</p>
+      <h2 class="section-title reveal reveal-delay-1">A little piece of<br><span style="font-style:italic;color:var(--purple)">Mexico, in Lagos</span></h2>
+      <blockquote class="about-quote reveal reveal-delay-2">
+        "Somewhere between terracotta walls and Lagos sunsets, we built a world worth escaping into."
+      </blockquote>
+      <p class="about-body reveal reveal-delay-3">
+        Encanto Lodge was born from a love of two cultures — the warmth of Mexican haciendas and the electrifying spirit of Lagos. Tucked away on Younis Bashorun Street in Victoria Island, our lodge is a sanctuary of bold flavours, lush gardens, shimmering pools, and rooms designed for deep rest.
+      </p>
+      <p class="about-body reveal reveal-delay-3" style="margin-top:16px">
+        Whether you're staying for a night or a week, you'll find that time moves differently here. Slower. Softer. Exactly as it should.
+      </p>
+      <div style="margin-top:36px" class="reveal reveal-delay-4">
+        <a href="#rooms" class="btn btn-outline-gold">See Our Rooms</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ROOMS
+============================= -->
+<section class="section rooms" id="rooms">
+  <div class="section-head">
+    <p class="eyebrow reveal">Accommodations</p>
+    <h2 class="section-title reveal reveal-delay-1">Choose Your <span style="font-style:italic;color:var(--purple)">Escape</span></h2>
+    <p class="reveal reveal-delay-2" style="font-size:15px;color:var(--muted);max-width:480px;line-height:1.8;margin-top:12px;font-weight:300">Every room includes pool access, breakfast, high-speed WiFi, and 24-hour service.</p>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card reveal">
+      <div class="room-img">
+        <div class="room-img-inner room-r1">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase">Add room photo</span>
+        </div>
+        <div class="room-badge">Most Popular</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tier">Standard · Ground Floor</div>
+        <div class="room-name">The Hacienda Room</div>
+        <div class="room-amenities">
+          <span class="room-amenity">King Bed</span>
+          <span class="room-amenity">Pool View</span>
+          <span class="room-amenity">En-Suite</span>
+          <span class="room-amenity">AC</span>
+          <span class="room-amenity">WiFi</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <div class="room-price-note">From</div>
+            <div class="room-price-val">₦45,000</div>
+            <div class="room-price-per">per night</div>
+          </div>
+          <button class="btn btn-purple btn-sm" onclick="window.open('https://wa.me/2347077907133?text=I want to book the Hacienda Room','_blank')">Reserve</button>
+        </div>
+      </div>
+    </div>
+    <div class="room-card reveal reveal-delay-1">
+      <div class="room-img">
+        <div class="room-img-inner room-r2">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase">Add room photo</span>
+        </div>
+        <div class="room-badge" style="background:var(--purple)">Garden Suite</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tier">Suite · Garden Level</div>
+        <div class="room-name">The Jardín Suite</div>
+        <div class="room-amenities">
+          <span class="room-amenity">King Suite</span>
+          <span class="room-amenity">Garden View</span>
+          <span class="room-amenity">Seating Area</span>
+          <span class="room-amenity">Minibar</span>
+          <span class="room-amenity">En-Suite</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <div class="room-price-note">From</div>
+            <div class="room-price-val">₦65,000</div>
+            <div class="room-price-per">per night</div>
+          </div>
+          <button class="btn btn-purple btn-sm" onclick="window.open('https://wa.me/2347077907133?text=I want to book the Jardin Suite','_blank')">Reserve</button>
+        </div>
+      </div>
+    </div>
+    <div class="room-card reveal reveal-delay-2">
+      <div class="room-img">
+        <div class="room-img-inner room-r3">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase">Add room photo</span>
+        </div>
+        <div class="room-badge" style="background:linear-gradient(135deg,var(--gold),var(--purple))">Premium</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tier">Premium Suite · Upper Floor</div>
+        <div class="room-name">The Encanto Suite</div>
+        <div class="room-amenities">
+          <span class="room-amenity">Premium Suite</span>
+          <span class="room-amenity">Balcony</span>
+          <span class="room-amenity">Minibar</span>
+          <span class="room-amenity">Butler Service</span>
+          <span class="room-amenity">Bath Tub</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <div class="room-price-note">From</div>
+            <div class="room-price-val">₦95,000</div>
+            <div class="room-price-per">per night</div>
+          </div>
+          <button class="btn btn-gold btn-sm" onclick="window.open('https://wa.me/2347077907133?text=I want to book the Encanto Suite','_blank')">Reserve</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     AMENITIES
+============================= -->
+<section class="section amenities tile-bg" id="amenities">
+  <div class="amenities-inner">
+    <div>
+      <p class="eyebrow reveal">What's Included</p>
+      <h2 class="section-title reveal reveal-delay-1">Everything You<br><span style="font-style:italic;color:var(--gold)">Need to Unwind</span></h2>
+      <p class="reveal reveal-delay-2" style="font-size:15px;color:var(--muted);line-height:1.9;margin-top:16px;font-weight:300;max-width:360px">Every amenity, every detail — curated so you never have to think about anything except how good it feels to be here.</p>
+      <div style="margin-top:36px" class="reveal reveal-delay-3">
+        <a href="#booking" class="btn btn-gold">Book Now — Best Rate</a>
+      </div>
+    </div>
+    <div class="amenities-grid reveal reveal-delay-1">
+      <div class="amenity-card">
+        <div class="amenity-icon">🏊</div>
+        <div class="amenity-name">Private Pool</div>
+        <div class="amenity-desc">Open 24/7 for all guests</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🌮</div>
+        <div class="amenity-name">Restaurant</div>
+        <div class="amenity-desc">All-day Mexican dining</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🍹</div>
+        <div class="amenity-name">Full Bar</div>
+        <div class="amenity-desc">Craft cocktails & spirits</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">📶</div>
+        <div class="amenity-name">Fast WiFi</div>
+        <div class="amenity-desc">High-speed throughout</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">❄️</div>
+        <div class="amenity-name">Air Conditioning</div>
+        <div class="amenity-desc">Climate controlled rooms</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🛎️</div>
+        <div class="amenity-name">24hr Service</div>
+        <div class="amenity-desc">Always here for you</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🅿️</div>
+        <div class="amenity-name">Parking</div>
+        <div class="amenity-desc">Secure on-site parking</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🌿</div>
+        <div class="amenity-name">Garden</div>
+        <div class="amenity-desc">Lush tropical grounds</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">☕</div>
+        <div class="amenity-name">Breakfast</div>
+        <div class="amenity-desc">Included with every room</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     EXPERIENCE
+============================= -->
+<section class="section experience" id="experience">
+  <div class="exp-head-row">
+    <div>
+      <p class="eyebrow reveal">Live the Encanto Life</p>
+      <h2 class="section-title reveal reveal-delay-1">Discover <span class="italic">Refined</span><br>Luxury in Lagos</h2>
+      <p class="exp-sub reveal reveal-delay-2">More than a stay. An experience you'll want to relive again and again.</p>
+    </div>
+    <a href="#gallery" class="btn btn-outline-gold reveal">View Gallery →</a>
+  </div>
+  <div class="exp-grid reveal">
+    <div class="exp-card">
+      <div class="exp-card-bg exp-c1">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="exp-ph-label">Add pool/outdoor photo</span>
+      </div>
+      <div class="exp-card-info">
+        <div class="exp-card-name">Sun, Pool & Pure Bliss</div>
+        <div class="exp-card-tag">Outdoor Experience</div>
+      </div>
+      <div class="exp-card-overlay"></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg exp-c2">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="exp-ph-label">Add bar photo</span>
+      </div>
+      <div class="exp-card-info">
+        <div class="exp-card-name">Cocktails & Conversation</div>
+        <div class="exp-card-tag">Bar & Nightlife</div>
+      </div>
+      <div class="exp-card-overlay"></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg exp-c3">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="exp-ph-label">Add dining photo</span>
+      </div>
+      <div class="exp-card-info">
+        <div class="exp-card-name">Authentic Mexican Cuisine</div>
+        <div class="exp-card-tag">Food & Culture</div>
+      </div>
+      <div class="exp-card-overlay"></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg exp-c4">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="exp-ph-label">Add room photo</span>
+      </div>
+      <div class="exp-card-info">
+        <div class="exp-card-name">Rooms Built for Rest</div>
+        <div class="exp-card-tag">Comfort & Sleep</div>
+      </div>
+      <div class="exp-card-overlay"></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-card-bg exp-c5">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="exp-ph-label">Add garden photo</span>
+      </div>
+      <div class="exp-card-info">
+        <div class="exp-card-name">Tropical Garden & Grounds</div>
+        <div class="exp-card-tag">Nature & Serenity</div>
+      </div>
+      <div class="exp-card-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     TESTIMONIALS
+============================= -->
+<section class="section testimonials" id="reviews">
+  <div class="section-head" style="text-align:center">
+    <p class="eyebrow reveal" style="justify-content:center">Guest Voices</p>
+    <h2 class="section-title reveal reveal-delay-1">What Our Guests <span style="font-style:italic;color:var(--gold)">Say</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Honestly felt like I left Lagos for a weekend without going anywhere. The pool, the food, the rooms — absolutely immaculate. I'm telling all my friends."</p>
+      <div class="testi-author">
+        <div class="testi-avatar testi-av1">🧑🏾</div>
+        <div>
+          <div class="testi-name">Adaeze O.</div>
+          <div class="testi-location">Lagos, Nigeria</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The Encanto Suite was everything. Woke up to incredible service, had breakfast by the pool, and genuinely did not want to leave. Best staycation in VI, period."</p>
+      <div class="testi-author">
+        <div class="testi-avatar testi-av2">👩🏽</div>
+        <div>
+          <div class="testi-name">Tolu B.</div>
+          <div class="testi-location">Victoria Island, Lagos</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The Mexican food here is no joke. Tacos at 11pm by the pool? Yes. The bar staff know exactly what they're doing. Already planning to come back next month."</p>
+      <div class="testi-author">
+        <div class="testi-avatar testi-av3">👨🏽</div>
+        <div>
+          <div class="testi-name">Emeka C.</div>
+          <div class="testi-location">Lekki, Lagos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     GALLERY
+============================= -->
+<section class="section-sm gallery" id="gallery">
+  <div class="section-head" style="text-align:center;margin-bottom:48px">
+    <p class="eyebrow reveal" style="justify-content:center">The Encanto Life</p>
+    <h2 class="section-title reveal reveal-delay-1">A Visual <span style="font-style:italic;color:var(--purple)">Journey</span></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><div class="gallery-ph g1"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Pool area</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g2"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Restaurant</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g3"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Garden</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Hacienda Room</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g5"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Bar</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Mexican cuisine</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g7"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Jardín Suite</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g8"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Lobby details</span></div><div class="gallery-overlay">+</div></div>
+    <div class="gallery-item"><div class="gallery-ph g9"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Encanto Suite</span></div><div class="gallery-overlay">+</div></div>
+  </div>
+</section>
+
+<!-- ============================
+     FAQ
+============================= -->
+<section class="section faq tile-bg-purple" id="faq">
+  <div class="faq-inner">
+    <div>
+      <p class="eyebrow reveal">Got Questions?</p>
+      <h2 class="section-title reveal reveal-delay-1">Everything<br>You Need to <span style="font-style:italic;color:var(--gold)">Know</span></h2>
+      <p class="reveal reveal-delay-2" style="font-size:15px;color:var(--muted);line-height:1.8;margin-top:16px;font-weight:300;max-width:300px">Still curious? Chat with us on WhatsApp — we're always available.</p>
+      <div style="margin-top:32px" class="reveal reveal-delay-3">
+        <button class="btn btn-wa" onclick="window.open('https://wa.me/2347077907133','_blank')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="faq-list reveal reveal-delay-1">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What's the check-in and check-out time?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Encanto Lodge is open 24 hours, 7 days a week. We offer flexible check-in and check-out times based on availability. Contact us directly via WhatsApp to arrange your preferred times.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is breakfast included with my room?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Yes! All rooms at Encanto Lodge include a complimentary breakfast served at our restaurant. We offer a Mexican-inspired morning menu with fresh juices, pastries, and hot dishes.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I book directly without Booking.com?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely — and we encourage it. Booking directly through our website or WhatsApp guarantees you the best available rate with no third-party commission fees added. You also get more flexibility on special requests.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is the pool available for all guests?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — our private pool is exclusively for lodge guests and is open 24 hours a day. Whether you want a morning swim or a midnight dip, we've got you covered.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Where exactly is Encanto Lodge located?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">We're at 79b Younis Bashorun Street, Victoria Island, Lagos — right in the heart of VI, easily accessible from major landmarks. Use Google Maps for turn-by-turn directions.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do you offer event or group bookings?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Yes! We accommodate intimate events, birthday celebrations, corporate retreats, and group stays. Reach out via WhatsApp or email at encantolagosrestaurant@gmail.com to discuss availability and packages.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FINAL CTA
+============================= -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <p class="eyebrow reveal" style="justify-content:center">Your Escape Awaits</p>
+    <h2 class="cta-title reveal reveal-delay-1">
+      Stop Scrolling.<br>
+      <span class="italic">Start Living.</span>
+    </h2>
+    <p class="cta-sub reveal reveal-delay-2">Lagos is always on. Encanto is your reason to slow down. Book directly with us for the best rate — guaranteed.</p>
+    <div class="cta-btns reveal reveal-delay-3">
+      <a href="#booking" class="btn btn-gold">📅 Book a Stay</a>
+      <button class="btn btn-wa" onclick="window.open('https://wa.me/2347077907133?text=Hello, I would like to make a reservation.','_blank')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us Now
+      </button>
+    </div>
+    <p class="cta-note reveal">Best rate guaranteed · No hidden fees · Open 24 hours</p>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+============================= -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+            <div class="footer-logo">
+        <div class="footer-wordmark">
+          <span class="fw-encanto">Encanto</span>
+          <span class="fw-lodge">Lodge</span>
+        </div>
+      </div>
+      <p class="footer-desc">Lagos's only Mexican-inspired lodge. A stay, a swim, a sip, a taste — all in one escape.</p>
+      <div class="footer-socials">
+        <div class="soc-btn" onclick="window.open('https://facebook.com/encantolodge','_blank')" title="Facebook">f</div>
+        <div class="soc-btn" title="Instagram">ig</div>
+        <div class="soc-btn" onclick="window.open('https://wa.me/2347077907133','_blank')" title="WhatsApp">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About the Lodge</a>
+        <a href="#rooms">Rooms & Suites</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Rooms</div>
+      <div class="footer-links">
+        <a href="#rooms">The Hacienda Room</a>
+        <a href="#rooms">The Jardín Suite</a>
+        <a href="#rooms">The Encanto Suite</a>
+        <a href="#booking">Book a Stay</a>
+        <a href="https://booking.com/Share-MB7Tf35" target="_blank">Booking.com ↗</a>
+      </div>
+    </div>
+    <div id="contact-col">
+      <div class="footer-col-title">Contact Us</div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">📍</span>
+        <span class="footer-contact-text">79b Younis Bashorun Street, Victoria Island, Lagos, Nigeria</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">📞</span>
+        <span class="footer-contact-text">0707 790 7133</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">✉️</span>
+        <span class="footer-contact-text">encantolagosrestaurant@gmail.com</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">🕐</span>
+        <span class="footer-contact-text">Open 24 Hours · Every Day</span>
+      </div>
+      <a href="https://maps.google.com/?q=79b+Younis+Bashorun+Street+Victoria+Island+Lagos" target="_blank" class="btn btn-outline-gold btn-sm" style="margin-top:20px;border-radius:100px">Open in Maps →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Encanto Lodge · Victoria Island, Lagos, Nigeria · All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     JAVASCRIPT
+============================= -->
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Init first FAQ open
+document.querySelector('.faq-item').classList.add('open');
+</script>
+
+</body>
+</html>
